@@ -6,40 +6,39 @@ import java.util.ArrayList;
 
 public class Suitcase {
     
-    private ArrayList<Thing> things = new ArrayList<Thing>();
     private int weightLimit;
+    private ArrayList<Thing> things;
     
     public Suitcase(int weightLimit) {
         this.weightLimit = weightLimit;
+        this.things = new ArrayList<Thing>();
     }
     
     public void addThing(Thing thing) {
-        if ((totalWeight() + thing.getWeight()) <= weightLimit) {
-            things.add(thing);
+        if ((this.totalWeight() + thing.getWeight()) <= this.weightLimit) {
+            this.things.add(thing);
         }
     }
     
     public int totalWeight() {
-        int total = 0;
-        for (Thing t : things) {
-            total += t.getWeight();
+        int weight = 0;
+        for (Thing t : this.things) {
+            weight += t.getWeight();
         }
-        return total;
+        return weight;
     }
     
     public void printThings() {
-        for (Thing t : things) {
+        for (Thing t : this.things) {
             System.out.println(t);
         }
     }
     
     public Thing heaviestThing() {
-        int currentHeaviest = 0;
         Thing heaviest = null;
         
-        for (Thing t : things) {
-            if (t.getWeight() > currentHeaviest) {
-                currentHeaviest = t.getWeight();
+        for (Thing t : this.things) {
+            if (heaviest == null || heaviest.getWeight() < t.getWeight()) {
                 heaviest = t;
             }
         }
@@ -48,12 +47,14 @@ public class Suitcase {
     
     @Override
     public String toString() {
-        if (things.isEmpty()) {
+        if (this.things.isEmpty()) {
             return "empty (0 kg)";
-        } else if (things.size() == 1) {
-            return "1 thing (" + totalWeight() + " kg)";
+            
+        } else if (this.things.size() == 1) {
+            return "1 thing (" + this.totalWeight() + " kg)";
+            
         } else {
-            return things.size() + " things (" + totalWeight() + " kg)";
+            return this.things.size() + " things (" + this.totalWeight() + " kg)";
         }      
     }
 }

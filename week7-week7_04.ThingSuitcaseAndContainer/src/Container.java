@@ -5,41 +5,45 @@ import java.util.ArrayList;
  */
 
 public class Container {
+    
     private int weightLimit;
-    private ArrayList<Suitcase> suitcases = new ArrayList<Suitcase>();
+    private ArrayList<Suitcase> suitcases;
 
     public Container(int weightLimit) {
         this.weightLimit = weightLimit;
+        this.suitcases = new ArrayList<Suitcase>();
     }
     
     public void addSuitcase(Suitcase suitcase) {
-        if ((totalWeight() + suitcase.totalWeight()) <= weightLimit) {
-            suitcases.add(suitcase);
+        if ((this.totalWeight() + suitcase.totalWeight()) <= weightLimit) {
+            this.suitcases.add(suitcase);
         }
     }
     
     public int totalWeight() {
-        int total = 0;
-        for (Suitcase s : suitcases) {
-            total += s.totalWeight();
+        int weight = 0;
+        for (Suitcase s : this.suitcases) {
+            weight += s.totalWeight();
         }
-        return total;
+        return weight;
     }
     
     public void printThings() {
-        for (Suitcase s : suitcases) {
+        for (Suitcase s : this.suitcases) {
             s.printThings();
         }
     }
     
     @Override
     public String toString() {
-        if (suitcases.isEmpty()) {
+        if (this.suitcases.isEmpty()) {
             return "empty (0 kg)";
-        } else if (suitcases.size() == 1) {
-            return "1 suitcase (" + totalWeight() + " kg)";
+            
+        } else if (this.suitcases.size() == 1) {
+            return "1 suitcase (" + this.totalWeight() + " kg)";
+            
         } else {
-            return suitcases.size() + " suitcases (" + totalWeight() + " kg)";
+            return this.suitcases.size() + " suitcases (" + this.totalWeight() + " kg)";
         }      
     }
 }
