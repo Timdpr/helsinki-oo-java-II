@@ -44,7 +44,7 @@ public class TextUI {
                 String id = this.reader.nextLine();
                 System.out.print("Give departure airport code: ");
                 String departureCode = this.reader.nextLine();
-                System.out.println("Give destination airport code: ");
+                System.out.print("Give destination airport code: ");
                 String destinationCode = this.reader.nextLine();
                 
                 this.airportDatabase.addFlight(id, departureCode, destinationCode);
