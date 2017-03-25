@@ -18,7 +18,10 @@ public class TextUserInterface {
                 + "  add - adds a word pair to the dictionary\n"
                 + "  translate - asks a word and prints its translation\n"
                 + "  quit - quits the text user interface");
-        
+        handleInput();
+    }
+    
+    public void handleInput() {
         String statement;
         while (true) {
             System.out.print("\nStatement: ");
