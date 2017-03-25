@@ -1,9 +1,8 @@
 public class Calculator {
-    private Reader reader;
+    private Reader reader = new Reader();
     private int counter;
     
     public void Calculator() {
-        this.reader = new Reader();
         this.counter = 0;
     }
     
@@ -28,13 +27,13 @@ public class Calculator {
     private void sum() {
         int[] values = readValues();
         int answer = values[0] + values[1];
-        System.out.println("product of the values " + answer);
+        System.out.println("sum of the values " + answer);
     }
     
     private void difference() {
         int[] values = readValues();
         int answer = values[0] - values[1];
-        System.out.println("product of the values " + answer);
+        System.out.println("difference of the values " + answer);
     }
     
     private void product() {
