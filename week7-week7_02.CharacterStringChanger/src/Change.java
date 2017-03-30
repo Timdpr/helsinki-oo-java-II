@@ -23,3 +23,4 @@ public class Change {
         return characterString.replace(fromCharacter, toCharacter);
     }
 }
+

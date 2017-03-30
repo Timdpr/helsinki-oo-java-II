@@ -28,3 +28,4 @@ public class Smileys {
         return ":) " + characterString + " :)";
     }
 }
+

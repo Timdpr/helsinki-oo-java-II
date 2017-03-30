@@ -6,3 +6,4 @@ public class Main {
         System.out.println(scandiesAway.change("ääliö älä lyö, ööliä läikkyy"));
     }
 }
+
