@@ -3,6 +3,8 @@
  * Uses JDK 8
  */
 
+package logic;
+
 import java.util.HashSet;
 import java.util.Set;
 

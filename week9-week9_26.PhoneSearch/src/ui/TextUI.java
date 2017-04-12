@@ -3,6 +3,10 @@
  * Uses JDK 8
  */
 
+package ui;
+
+import logic.Person;
+import logic.PersonDirectory;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
