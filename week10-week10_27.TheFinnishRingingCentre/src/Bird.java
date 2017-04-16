@@ -10,7 +10,6 @@ public class Bird {
         this.ringingYear = ringingYear;
     }
 
-
     @Override
     public String toString() {
         return this.latinName + " (" + this.ringingYear + ")";
