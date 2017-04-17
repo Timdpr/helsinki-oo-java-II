@@ -6,3 +6,6 @@
 *.xml
 *.yml
 *.mf
+
+*/build_errors.txt
+*/build_log.txt
