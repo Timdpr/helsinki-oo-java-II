@@ -24,8 +24,7 @@ public class Group implements Movable {
     public String toString() {
         String returnString = "";
         for (Movable movable : this.movableList) {
-            returnString += movable;
-            returnString += "\n";
+            returnString += movable + "\n";
         }
         return returnString;
     }
