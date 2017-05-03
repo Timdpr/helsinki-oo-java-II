@@ -6,10 +6,6 @@ package farmsimulator;
 public class MilkingRobot {
     private BulkTank bulkTank = null;
     
-    public MilkingRobot() {
-        
-    }
-    
     public BulkTank getBulkTank() {
         return this.bulkTank;
     }
