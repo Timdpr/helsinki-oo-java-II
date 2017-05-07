@@ -1,4 +1,5 @@
 public class Change {
+
     private final char fromCharacter;
     private final char toCharacter;
     
