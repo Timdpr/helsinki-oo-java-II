@@ -7,6 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class RingingCentre {
+    
     private Map<Bird, ArrayList<String>> placeMap = new HashMap<Bird, ArrayList<String>>();
     
     public void observe(Bird bird, String place) {
