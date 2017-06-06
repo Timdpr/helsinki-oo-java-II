@@ -28,37 +28,37 @@ public class GraphicCalculator implements Runnable {
     }
 
     private void createComponents(Container container) {
+        fillMemberVariables();
+        
         container.setLayout(new GridLayout(3,1));
-        
-        outputField = new JTextField("0");
-        outputField.setEnabled(false);
-        container.add(outputField);
-        
-        inputField = new JTextField();
-        container.add(inputField);
+        container.add(this.outputField);
+        container.add(this.inputField);
         
         JPanel lowerPanel = new JPanel();
         lowerPanel.setLayout(new GridLayout(1,3));
-        
+        lowerPanel.add(this.plus);
+        lowerPanel.add(this.minus);
+        lowerPanel.add(this.z);
+        container.add(lowerPanel);
+    }
+    
+    public void fillMemberVariables() {
+        this.outputField = new JTextField("0");
+        this.outputField.setEnabled(false);
+        this.inputField = new JTextField();
         this.plus = new JButton("+");
         this.minus = new JButton("-");
         this.z = new JButton("Z");
         this.z.setEnabled(false);
         
-        lowerPanel.add(this.plus);
-        lowerPanel.add(this.minus);
-        lowerPanel.add(this.z);
-        container.add(lowerPanel);
-        
-        this.plus.addActionListener(
-                new ButtonListener(this.plus, this.z, this.inputField, this.outputField));
-        this.minus.addActionListener(
-                new ButtonListener(this.minus, this.z, this.inputField, this.outputField));
-        this.z.addActionListener(
-                new ButtonListener(this.z, this.z, this.inputField, this.outputField));
+        ButtonListener listener = 
+                new ButtonListener(plus, minus, z, inputField, outputField);
+        this.plus.addActionListener(listener);
+        this.minus.addActionListener(listener);
+        this.z.addActionListener(listener);
     }
 
     public JFrame getFrame() {
-        return frame;
+        return this.frame;
     }
 }

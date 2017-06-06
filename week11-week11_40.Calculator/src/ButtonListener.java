@@ -8,14 +8,17 @@ import javax.swing.JTextField;
  */
 
 public class ButtonListener implements ActionListener {
-    private JButton pressedButton;
+    private JButton plusButton;
+    private JButton minusButton;
     private JButton zButton;
     private JTextField inputField;
     private JTextField outputField;
+    private ApplicationLogic calculator = new ApplicationLogic();
     
-    public ButtonListener(JButton pressedButton, JButton zButton,
+    public ButtonListener(JButton plusButton, JButton minusButton, JButton zButton,
                           JTextField inputField, JTextField outputField) {
-        this.pressedButton = pressedButton;
+        this.plusButton = plusButton;
+        this.minusButton = minusButton;
         this.zButton = zButton;
         this.inputField = inputField;
         this.outputField = outputField;
@@ -23,29 +26,27 @@ public class ButtonListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String operation = this.pressedButton.getText();
-        
-        if (operation.equals("Z")) {
-            this.outputField.setText("0");
+        int input = 0;
+        try {
+            input = Integer.parseInt(this.inputField.getText());
+        } catch (Exception ex) {    
         }
-        else if (this.inputField.getText().matches("\\d+")) {
             
-            int input = Integer.parseInt(this.inputField.getText());
-            int output = Integer.parseInt(this.outputField.getText());
-
-            switch (operation) {
-            case "+": this.outputField.setText("" + (output + input));
-                      break;
-            case "-": this.outputField.setText("" + (output - input));
-                      break;
-            }
+        if (e.getSource() == this.plusButton) {
+            this.calculator.plus(input);
+        } else if (e.getSource() == this.minusButton) {
+            this.calculator.minus(input);
+        } else {
+            this.calculator.reset();
         }
-        setZButton();
+        
+        this.outputField.setText("" + this.calculator.result());
         this.inputField.setText("");
+        setZButton();
     }
     
     public void setZButton() {
-        if (this.outputField.getText().equals("0")) {
+        if (this.calculator.result() == 0) {
             this.zButton.setEnabled(false);
         } else {
             this.zButton.setEnabled(true);
